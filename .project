@@ -4,9 +4,9 @@
 	<comment></comment>
 	<projects>
 	</projects>
-	<buildSpec>
+	<buildSpec> 
 		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
+			<name>org.eclipse.jdt.core.javabuilder</name> 
 			<arguments>
 			</arguments>
 		</buildCommand>
