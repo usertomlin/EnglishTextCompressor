@@ -20,7 +20,7 @@ After including the Jar file 'EnTextCompressor-1.0.jar' to build path, it can be
 #byte[] bytes = EnTextCompressor.compress(string);
 
 ## uncompress from byte array
-#String restoredString = uncompress(bytes);
+#String restoredString = EnTextCompressor.uncompress(bytes);
 
 
 ```
