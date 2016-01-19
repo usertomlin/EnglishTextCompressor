@@ -4,7 +4,7 @@ author: Tom Lin
 output: html_document
 ---
 
-A simple Java library for losslessly compressing short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-alphanumeric or rare characters. 
+A simple Java library for lossless compression of short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-alphanumeric or rare characters. 
 
 
 
@@ -52,31 +52,31 @@ Suppose:
 The average compression ratios (uncompressed size / compressed size) tested on many Wikipedia texts are approximately:
 	  
 	 * 50 characters (50-character windows): 
-	 * rate_this  = 2.05
-	 * rate_gz  = 0.67
+	 * rate_this = 2.05
+	 * rate_gz = 0.67
 	 * 
 	 * 100 characters:
 	 * rate_this = 2.32
-	 * rate_gz  = 0.89
+	 * rate_gz = 0.89
 	 * 
 	 * 200 characters:
-	 * rate_this  = 2.48
-	 * rate_gz  = 1.16
+	 * rate_this = 2.48
+	 * rate_gz = 1.16
 	 * 
 	 * 500 characters:
 	 * rate_this = 2.59
-	 * rate_gz  = 1.51
+	 * rate_gz = 1.51
 	 * 
 	 * 1000 characters:
-	 * rate_this  = 2.62
-	 * rate_gz  = 1.74
+	 * rate_this = 2.62
+	 * rate_gz = 1.74
 	 * 
 	 * 2000 characters:
-	 * rate_this  = 2.63
-	 * rate_gz  = 1.93
+	 * rate_this = 2.63
+	 * rate_gz = 1.93
 	 * 
 	 * 5000 characters:
-	 * rate_this  = 2.64 
+	 * rate_this = 2.64 
 	 * rate_gz = 2.15
 	 * 
 	 * 10000 characters:
@@ -87,5 +87,5 @@ The current supported maximum text size is around 524M bytes.
 
 #### Use cases
 
-For example, it can be used to compress and uncompress a few columns of short English natural language texts not for searching in a large database table. And it's not recommended for compressing larger text files.
+For example, it can be used to compress and uncompress a few columns of short English natural language texts not for searching in a large database table. And it's not recommended for compressing large text files.
 
