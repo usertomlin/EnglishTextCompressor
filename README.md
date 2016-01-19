@@ -28,7 +28,7 @@ After including the Jar file 'EnTextCompressor-1.0.jar' to build path, it can be
 ```
 
 
-#### A brief performance introduction
+#### Feature
 
 It works much better than gz in terms of compression ratio for short (1000 characters or less) English natural language texts. 
 
@@ -85,7 +85,7 @@ The average compression ratios (uncompressed size / compressed size) tested on m
 
 The current maximum text size it can compress is around 524M bytes.
 
-#### Use case
+#### Use cases
 
 For example, it can be used to compress and uncompress a few columns of short natural language texts in a large databased table, and the text columns are not used for searching. Not recommended for compressing larger texts files.
 
