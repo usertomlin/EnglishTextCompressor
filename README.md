@@ -4,13 +4,13 @@ author: Tom Lin
 output: html_document
 ---
 
-A simple Java library used for losslessly compressing short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-alphanumeric or rare characters. 
+A simple Java library for losslessly compressing short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-alphanumeric or rare characters. 
 
 
 
 #### Example
 
-After including the Jar file 'EnTextCompressor-1.0.jar' to build path, it can be used to compress English texts.
+After including the jar file 'EnTextCompressor-1.0.jar' to build path, it can be used to compress English texts.
 
 
 ```{r compress}
