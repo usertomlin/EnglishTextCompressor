@@ -87,5 +87,5 @@ The current maximum text size it can compress is around 524M bytes.
 
 #### Use cases
 
-For example, it can be used to compress and uncompress a few columns of short natural language texts in a large databased table, and the text columns are not used for searching. Not recommended for compressing larger text files.
+For example, it can be used to compress and uncompress a few columns of short natural language texts in a large database table, and the text columns are not used for searching. Not recommended for compressing larger text files.
 
