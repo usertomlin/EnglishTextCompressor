@@ -28,7 +28,7 @@ After including the Jar file 'EnTextCompressor-1.0.jar' to build path, it can be
 
 #### A brief performance introduction
 
-It works better than gz for short (length < 5000) English natural language texts. 
+It works much better than gz in terms of compression ratio for short (length < 1000) English natural language texts. 
 
 Suppose:
 
@@ -37,7 +37,7 @@ Suppose:
 #byte[] bytes = EnTextCompressor.compress(substring);
 
 #ByteArrayOutputStream baos = new ByteArrayOutputStream();
-#			ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new #GZIPOutputStream(baos) : baos);
+#			ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new GZIPOutputStream(baos) : baos);
 #			oos.writeObject(object);
 #oos.close();
 #byte[] bytes2 = baos.toByteArray();
