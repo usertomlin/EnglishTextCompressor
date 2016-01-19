@@ -83,5 +83,5 @@ The average compression ratios (uncompressed size / compressed size) tested on m
 
 #### Use case
 
-For example, it can be used to compress and uncompress a few columns of short natural language texts of a large databased table, and the text columns not used for searching. Not recommended for compressing larger texts files.
+For example, it can be used to compress and uncompress a few columns of short natural language texts in a large databased table, and the text columns are not used for searching. Not recommended for compressing larger texts files.
 
