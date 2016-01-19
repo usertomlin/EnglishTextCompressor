@@ -3,7 +3,7 @@ title: "Java English Short Text Compressor"
 output: html_document
 ---
 
-A Java library used for losslessly compressing short English natural language texts. To ensure better performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-English or rare characters. 
+A simple Java library used for losslessly compressing short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-English or rare characters. 
 
 
 #### Example
@@ -47,7 +47,7 @@ Suppose:
 
 ```
 
-The average compression ratios (uncompressed size / compressed size) test on many Wikipedia texts are approximately:
+The average compression ratios (uncompressed size / compressed size) tested on many Wikipedia texts are approximately:
 	  
 	 * 50 characters (50-character windows): 
 	 * rate_this  = 2.05
