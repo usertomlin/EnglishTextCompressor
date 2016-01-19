@@ -85,7 +85,7 @@ The average compression ratios (uncompressed size / compressed size) tested on m
 
 The current supported maximum text size is around 524M bytes.
 
-#### Use cases
+#### Usage scenarios
 
 For example, it can be used to compress and uncompress a few columns of short English natural language texts not for searching in a large database table. And it's not recommended for compressing large text files.
 
