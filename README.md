@@ -34,11 +34,11 @@ Suppose:
 
 ```{r}
 #double originalLength = string.getBytes().length;
-#byte[] bytes = EnTextCompressor.compress(substring);
+#byte[] bytes = EnTextCompressor.compress(string);
 
 #ByteArrayOutputStream baos = new ByteArrayOutputStream();
-#			ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new GZIPOutputStream(baos) : baos);
-#			oos.writeObject(object);
+#ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new GZIPOutputStream(baos) : baos);
+#oos.writeObject(string);
 #oos.close();
 #byte[] bytes2 = baos.toByteArray();
 
