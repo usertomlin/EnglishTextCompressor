@@ -1,9 +1,12 @@
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.zip.GZIPOutputStream;
+
 import abc.corpus.compression.EnTextCompressor;
-import abc.utils.ObjectUtils;
 
 public class CompressionExample {
 
-	protected static void testCompress() {
+	protected static void testCompress() throws Exception {
 		
 		String string = " In the \tlast fwf3t4f two tables, \nyou can see the three-party syllables (trigrams) of the English language. From the original text 185.984 three-party syllables were extracted. In the table, only syllables with a probabilty of at least 0.30% were published. The left list is sorted according to the syllables, the right to the frequencies. Thus the syllable THE is the most common syllable of the English language. " ;
 //		String string = FileUtils.read("D:/Corpora/wiki/enwiki/AA/wiki_01");
@@ -15,11 +18,17 @@ public class CompressionExample {
 		
 		System.out.println("restoredString.equals(string) ? = " + string.equals(restoredString));
 		System.out.println("this library: bytes.length = " + (bytes.length));
-		System.out.println("gz: bytes.length = " + (ObjectUtils.toBytes(bytes, true).length));
-		System.out.println("System.exit(0) at EnWordStatsProcessor.enclosing_method()");
+		
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ObjectOutputStream oos = new ObjectOutputStream(new GZIPOutputStream(baos) );
+		oos.writeObject(string);
+		oos.close();
+		byte[] bytes_gz = baos.toByteArray();
+		
+		System.out.println("gz: bytes.length = " + (bytes_gz.length));
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		testCompress();
 	}
 }

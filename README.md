@@ -1,9 +1,11 @@
 ---
 title: "Java English Short Text Compressor"
+author: Tom Lin
 output: html_document
 ---
 
-A Java library used for losslessly compressing short English natural language texts. To ensure better performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-English or rare characters. 
+A simple Java library used for losslessly compressing short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-alphanumeric or rare characters. 
+
 
 
 #### Example
@@ -20,25 +22,25 @@ After including the Jar file 'EnTextCompressor-1.0.jar' to build path, it can be
 #byte[] bytes = EnTextCompressor.compress(string);
 
 ## uncompress from byte array
-#String restoredString = uncompress(bytes);
+#String restoredString = EnTextCompressor.uncompress(bytes);
 
 
 ```
 
 
-#### A brief performance introduction
+#### Feature
 
-It works better than gz for short (length < 5000) English natural language texts. 
+It works much better than gz in terms of compression ratio for short (1000 characters or less) English natural language texts. 
 
 Suppose:
 
 ```{r}
 #double originalLength = string.getBytes().length;
-#byte[] bytes = EnTextCompressor.compress(substring);
+#byte[] bytes = EnTextCompressor.compress(string);
 
 #ByteArrayOutputStream baos = new ByteArrayOutputStream();
-#			ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new #GZIPOutputStream(baos) : baos);
-#			oos.writeObject(object);
+#ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new GZIPOutputStream(baos) : baos);
+#oos.writeObject(string);
 #oos.close();
 #byte[] bytes2 = baos.toByteArray();
 
@@ -47,7 +49,7 @@ Suppose:
 
 ```
 
-The average compression ratios (uncompressed size / compressed size) test on many Wikipedia texts are approximately:
+The average compression ratios (uncompressed size / compressed size) tested on many Wikipedia texts are approximately:
 	  
 	 * 50 characters (50-character windows): 
 	 * rate_this  = 2.05
@@ -81,7 +83,9 @@ The average compression ratios (uncompressed size / compressed size) test on man
 	 * rate_this = 2.64 
 	 * rate_gz = 2.30
 
-#### Use case
+The current maximum text size it can compress is around 524M bytes.
 
-For example, it can be used to compress and uncompress a few columns of short natural language texts of a large databased table, and the text columns not used for searching. Not recommended for compressing larger texts files.
+#### Use cases
+
+For example, it can be used to compress and uncompress a few columns of short natural language texts in a large database table, and the text columns are not used for searching. Not recommended for compressing larger text files.
 
