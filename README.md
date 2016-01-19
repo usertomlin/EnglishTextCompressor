@@ -1,9 +1,11 @@
 ---
 title: "Java English Short Text Compressor"
+author: Tom Lin
 output: html_document
 ---
 
 A simple Java library used for losslessly compressing short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-English or rare characters. 
+
 
 
 #### Example
