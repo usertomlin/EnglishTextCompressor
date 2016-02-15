@@ -6,7 +6,9 @@ output: html_document
 
 A simple Java library for lossless compression of short English natural language texts. To ensure performance, the dominant language of the text to compress should be English, but the text can also be mixed with other non-alphanumeric or rare characters. 
 
+#### Dependncies
 
+The trove library. Add 'trove-3.1a1.jar' or an another version trove library to build path.
 
 #### Example
 
