@@ -10,7 +10,7 @@ A simple Java library for lossless compression of short English natural language
 
 #### Example
 
-After including the jar file 'EnTextCompressor-1.0.jar' to build path, it can be used to compress English texts.
+After including the jar file 'EnTextCompressor-1.1.jar' to build path, it can be used to compress English texts.
 
 
 ```{r compress}
@@ -49,43 +49,44 @@ Suppose:
 
 ```
 
-The average compression ratios (uncompressed size / compressed size) tested on many Wikipedia texts are approximately:
+The average compression rates (compressed size / uncompressed size) tested on many Wikipedia texts are approximately:
 	  
 	 * 50 characters (50-character windows): 
-	 * rate_this = 2.05
-	 * rate_gz = 0.67
+	 * rate_this = 0.395
+	 * rate_gz = 1.503
 	 * 
 	 * 100 characters:
-	 * rate_this = 2.32
-	 * rate_gz = 0.89
+	 * rate_this = 0.3536
+	 * rate_gz = 1.12
 	 * 
 	 * 200 characters:
-	 * rate_this = 2.48
-	 * rate_gz = 1.16
+	 * rate_this = 0.333
+	 * rate_gz = 0.865
 	 * 
 	 * 500 characters:
-	 * rate_this = 2.59
-	 * rate_gz = 1.51
+	 * rate_this = 0.321
+	 * rate_gz = 0.663
 	 * 
 	 * 1000 characters:
-	 * rate_this = 2.62
-	 * rate_gz = 1.74
+	 * rate_this = 0.316
+	 * rate_gz = 0.574
 	 * 
 	 * 2000 characters:
-	 * rate_this = 2.63
-	 * rate_gz = 1.93
+	 * rate_this = 0.314
+	 * rate_gz = 0.517
 	 * 
 	 * 5000 characters:
-	 * rate_this = 2.64 
-	 * rate_gz = 2.15
+	 * rate_this = 0.313
+	 * rate_gz = 0.465
 	 * 
 	 * 10000 characters:
-	 * rate_this = 2.64 
-	 * rate_gz = 2.30
+	 * rate_this = 0.313 
+	 * rate_gz = 0.434
 
-The current supported maximum text size is around 524M bytes.
 
 #### Usage scenarios
 
 For example, it can be used to compress and uncompress a few columns of short English natural language texts not for searching in a large database table. And it's not recommended for compressing large text files.
+
+
 
