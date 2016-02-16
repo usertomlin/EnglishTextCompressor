@@ -12,7 +12,7 @@ The trove library. Add 'trove-3.1a1.jar' or an another version trove library to 
 
 #### Example
 
-After including the jar file 'EnTextCompressor-1.1.jar' to build path, it can be used to compress English texts.
+After including the jar file 'EnTextCompressor-1.1.jar' (in the lib folder) to build path, it can be used to compress English texts.
 
 
 ```{r compress}
