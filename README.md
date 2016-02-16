@@ -32,7 +32,8 @@ After including the jar file 'EnTextCompressor-1.1.jar' to build path, it can be
 
 #### Feature
 
-It performs better than GZ in terms of compression ratio by a good margin for short (2000 characters or less, especially 500 characters or less) English natural language texts. 
+Performs better than GZ in terms of compression rate by a good margin for short (10000 characters or less, especially 1000 characters or less) English natural language texts. 
+
 
 Suppose:
 
@@ -84,11 +85,17 @@ The average compression rates (compressed size / uncompressed size) tested on ma
 	 * 10000 characters:
 	 * rate_this = 0.313 
 	 * rate_gz = 0.434
+	 
+	 * around en texts with size around 5M
+	 * rate_this = 0.313 
+	 * rate_gz = 0.367
+	 *
+
 
 
 #### Usage scenarios
 
-For example, it can be used to compress and uncompress a few columns of short English natural language texts not for searching in a large database table. And it's not recommended for compressing large text files.
+Can be used to compress a few columns of short English natural language texts not for searching in a large database table. Not recommended for compressing large text files.
 
 
 

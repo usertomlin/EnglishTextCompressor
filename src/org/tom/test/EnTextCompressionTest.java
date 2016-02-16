@@ -1,13 +1,16 @@
 package org.tom.test;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 import org.tom.compression.EnTextCompressor;
@@ -66,6 +69,18 @@ public class EnTextCompressionTest {
 			return null;
 		}
 	}
+	protected static String uncompressWithGz(byte[] bytes) {
+		try {
+			ByteArrayInputStream bais = new ByteArrayInputStream(bytes, 0, bytes.length);
+			ObjectInputStream ois = new ObjectInputStream(new GZIPInputStream(bais));
+			String object = (String) ois.readObject();
+			bais.close();
+			return object;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 	protected static void test0() {
 		String rawTextsFileOrDir = "D:/Corpora/wiki/enwiki/AA";
@@ -78,7 +93,7 @@ public class EnTextCompressionTest {
 			rawTextsFilePaths.add(rawTextsFileOrDir);
 		}
 		
-		final int windowLength = 10000;
+		final int windowLength = 500000;
 		
 		long originalLength = 0;
 		long compressedLength1 = 0;
@@ -86,8 +101,13 @@ public class EnTextCompressionTest {
 		for (String rawTextsFilePath : rawTextsFilePaths) {
 			String enText = read(rawTextsFilePath);
 			
-			for (int i = 0; i < 800000 ; ){
-				String text = enText.substring(i, i + windowLength);
+			
+			for (int i = 0; i < enText.length() ; ){
+				int end = i + windowLength;
+				if (end >= enText.length())
+					break;
+				
+				String text = enText.substring(i, end);
 				originalLength += text.getBytes().length;
 				byte[] compressedBytes = EnTextCompressor.compress(text);
 				compressedLength1 += compressedBytes.length;
@@ -117,7 +137,25 @@ public class EnTextCompressionTest {
 	}
 	
 	
+	/**time for compression plus uncompression
+	 * this:  milliseconds.
+	 * gz:  milliseconds
+	 * 
+	 * for compression
+	 * this:  7122 milliseconds.
+	 * gz:  3082 milliseconds.
+	 * 
+	 * for uncompression
+	 * this: 17500 milliseconds.
+	 * gz: 5246 milliseconds.
+	 */
 	protected static void test1() {
+		
+		long time11 = 0;
+		long time12 = 0;
+		long time21 = 0;
+		long time22 = 0;
+		
 		String rawTextsFileOrDir = "D:/Corpora/wiki/enwiki/AA";
 		
 		File file = new File(rawTextsFileOrDir);
@@ -130,22 +168,52 @@ public class EnTextCompressionTest {
 		
 		long originalLength = 0;
 		long compressedLength = 0;
+		long gzCompressedLength = 0;
+		
 		for (String rawTextsFilePath : rawTextsFilePaths) {
+			
 			String enText = read(rawTextsFilePath);
 			originalLength += enText.getBytes().length;
+			
+			long start11 = System.currentTimeMillis();
 			byte[] compressedBytes = EnTextCompressor.compress(enText);
 			compressedLength += compressedBytes.length;
+			time11 += System.currentTimeMillis() - start11;
+			
+			long start12 = System.currentTimeMillis();
 			String uncompressedText = EnTextCompressor.uncompress(compressedBytes);
+			time12 += System.currentTimeMillis() - start12;
+			
+			long start21 = System.currentTimeMillis();
+			byte[] gzCompressedBytes = compressWithGz(enText);
+			gzCompressedLength += gzCompressedBytes.length;
+			time21 += System.currentTimeMillis() - start21;
+			
+			long start22 = System.currentTimeMillis();
+			String uncompressedText2 = uncompressWithGz(gzCompressedBytes);
+			time22 += System.currentTimeMillis() - start22;
+			
 			if (enText.equals(uncompressedText) == false){
 				throw new Error("Some bugs occurred to the compressor");
 			} else {
 				System.out.println("Successfully compressed the text in : " + rawTextsFilePath);
 			}
+			
 		}
 		
 		System.out.println("originalLength = " + originalLength);
 		System.out.println("compressedLength = " + compressedLength);
-		System.out.println("compression rate = " + ((double) compressedLength) /originalLength);
+		System.out.println("gzCompressedLength = " + gzCompressedLength);
+		System.out.println("compression rate = " + ((double) compressedLength) / originalLength);
+		System.out.println("gz compression rate = " + ((double) gzCompressedLength) / originalLength);
+		System.out.println("time11 : " + (time11) + 
+				" milliseconds.");
+		System.out.println("time12 : " + (time12) + 
+				" milliseconds.");
+		System.out.println("time21: " + (time21) + 
+				" milliseconds.");
+		System.out.println("time22: " + (time22) + 
+				" milliseconds.");
 	}
 	
 	protected static void test2() {
@@ -162,10 +230,11 @@ public class EnTextCompressionTest {
 		System.out.println(enText.equals(uncompressedText));
 		System.out.println("originalLength = " + originalLength);
 		System.out.println("compressedLength = " + compressedLength);
-		System.out.println("compression rate = " + ((double) compressedLength) / originalLength);
+		System.out.println("compression rate = " + ((double) compressedLength) /originalLength);
 	}
 	
 	public static void main(String[] args) {
-		test0();
+//		test0();
+		test1();
 	}
 }
