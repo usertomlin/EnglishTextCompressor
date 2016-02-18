@@ -95,7 +95,7 @@ The average compression rates (compressed size / uncompressed size) tested on ma
 
 #### Usage scenarios
 
-Can be used to compress a few columns of short English natural language texts not for searching in a large database table. Not recommended for compressing large text files.
+For example, can be used to compress a few columns of short English natural language texts not for searching in a large database table. Not recommended for compressing large (>10M) text files.
 
 
 
