@@ -32,7 +32,7 @@ After including the jar file 'EnTextCompressor-1.1.jar' (in the lib folder) to b
 
 #### Feature
 
-Performs better than GZ in terms of compression rate by a good margin for short (10000 characters or less, especially 1000 characters or less) English natural language texts. 
+Performs better than GZ in terms of compression rate for short (10000 characters or less, especially 1000 characters or less) English natural language texts. 
 
 
 Suppose:
