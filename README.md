@@ -12,26 +12,27 @@ The trove library. Add both 'trove-3.1a1.jar' and 'EnTextCompressor-1.1.jar' in 
 
 #### Example
 
-![alt text](example.png)
+The following snippet is a usage example for compression from String to byte array and uncompression from byte array to String
 
-Use 'java -jar EnTextCompressor-1.1-standalone.jar -c path/to/original-txt path/to/compressed-file(optional)' to compress a text file.
-Use 'java -jar EnTextCompressor-1.1-standalone.jar -uc path/to/compressed-file path/to/original-txt(optional)' to uncompress.
+```java
 
+String text = "The ticks that transmit Lyme disease, a debilitating flulike illness caused by Borrelia bacteria, are spreading rapidly across the United States. A new study shows just how rapidly. Over the past 20 years, the two species known to spread the disease to humans have together advanced into half of all the counties in the United States."
 
+//compress to byte array
+byte[] bytes = EnTextCompressor.compress(text);
 
-```{r compress}
-
-#
-#String string = "The ticks that transmit Lyme disease, a debilitating flulike illness caused by Borrelia bacteria, are spreading rapidly across the United States. A new study shows just how rapidly. Over the past 20 years, the two species known to spread the disease to humans have together advanced into half of all the counties in the United States."
-
-## compress to byte array
-#byte[] bytes = EnTextCompressor.compress(string);
-
-## uncompress from byte array
-#String restoredString = EnTextCompressor.uncompress(bytes);
-
+//uncompress from byte array
+#String restoredText = EnTextCompressor.uncompress(bytes);
 
 ```
+
+
+
+![alt text](example.png)
+
+To test with the runnable jar, use command 'java -jar EnTextCompressor-1.1-standalone.jar -c path/to/original-txt path/to/compressed-file(optional)' to compress a text file.
+Use 'java -jar EnTextCompressor-1.1-standalone.jar -uc path/to/compressed-file path/to/original-txt(optional)' to uncompress.
+
 
 
 #### Feature
@@ -41,18 +42,18 @@ Performs better than GZ in terms of compression rate for short (10000 characters
 
 Suppose:
 
-```{r}
-#double originalLength = string.getBytes().length;
-#byte[] bytes = EnTextCompressor.compress(string);
+```java
+double originalLength = text.getBytes().length;
+byte[] bytes = EnTextCompressor.compress(text);
 
-#ByteArrayOutputStream baos = new ByteArrayOutputStream();
-#ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new GZIPOutputStream(baos) : baos);
-#oos.writeObject(string);
-#oos.close();
-#byte[] bytes2 = baos.toByteArray();
+ByteArrayOutputStream baos = new ByteArrayOutputStream();
+ObjectOutputStream oos = new ObjectOutputStream(useGZip ? new GZIPOutputStream(baos) : baos);
+oos.writeObject(text);
+oos.close();
+byte[] bytes2 = baos.toByteArray();
 
-#double rate_this = originalLength / bytes.length;
-#double rate_gz = originalLength / bytes2.length;
+double rate_this = originalLength / bytes.length;
+double rate_gz = originalLength / bytes2.length;
 
 ```
 
