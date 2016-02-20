@@ -8,11 +8,15 @@ A simple Java library for lossless compression of short English natural language
 
 #### Dependncies
 
-The trove library. Add 'trove-3.1a1.jar' or an another version trove library to build path.
+The trove library. Add both 'trove-3.1a1.jar' and 'EnTextCompressor-1.1.jar' in the lib folder to build path to compress English texts.
 
 #### Example
 
-After including the jar file 'EnTextCompressor-1.1.jar' (in the lib folder) to build path, it can be used to compress English texts.
+![alt text](example.png)
+
+Use 'java -jar EnTextCompressor-1.1-standalone.jar -c path/to/original-txt path/to/compressed-file(optional)' to compress a text file.
+Use 'java -jar EnTextCompressor-1.1-standalone.jar -uc path/to/compressed-file path/to/original-txt(optional)' to uncompress.
+
 
 
 ```{r compress}
@@ -91,7 +95,9 @@ The average compression rates (compressed size / uncompressed size) tested on ma
 	 * rate_gz = 0.367
 	 *
 
+#### Speed
 
+Significantly faster than GZ for tiny sized texts, and approximately as fast as GZ for texts with size around 5M in terms of compression speed. 
 
 #### Usage scenarios
 
