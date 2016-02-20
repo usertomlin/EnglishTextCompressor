@@ -22,7 +22,7 @@ String text = "The ticks that transmit Lyme disease, a debilitating flulike illn
 byte[] bytes = EnTextCompressor.compress(text);
 
 //uncompress from byte array
-#String restoredText = EnTextCompressor.uncompress(bytes);
+String restoredText = EnTextCompressor.uncompress(bytes);
 
 ```
 
@@ -30,8 +30,7 @@ byte[] bytes = EnTextCompressor.compress(text);
 
 ![alt text](example.png)
 
-To test with the runnable jar, use command 'java -jar EnTextCompressor-1.1-standalone.jar -c path/to/original-txt path/to/compressed-file(optional)' to compress a text file.
-Use 'java -jar EnTextCompressor-1.1-standalone.jar -uc path/to/compressed-file path/to/original-txt(optional)' to uncompress.
+To test with the runnable jar, use command 'java -jar EnTextCompressor-1.1-standalone.jar -c path/to/original-txt path/to/compressed-file(optional)' to compress a text file, and 'java -jar EnTextCompressor-1.1-standalone.jar -uc path/to/compressed-file path/to/original-txt(optional)' to uncompress it.
 
 
 
@@ -57,7 +56,7 @@ double rate_gz = originalLength / bytes2.length;
 
 ```
 
-The average compression rates (compressed size / uncompressed size) tested on many Wikipedia texts are approximately:
+The average compression rates (compressed size / original size) tested on many Wikipedia texts are approximately:
 	  
 	 * 50 characters (50-character windows): 
 	 * rate_this = 0.395
@@ -91,14 +90,14 @@ The average compression rates (compressed size / uncompressed size) tested on ma
 	 * rate_this = 0.313 
 	 * rate_gz = 0.434
 	 
-	 * around en texts with size around 5M
+	 * english texts with size around 5M
 	 * rate_this = 0.313 
 	 * rate_gz = 0.367
 	 *
 
 #### Speed
 
-Significantly faster than GZ for tiny sized texts, and approximately as fast as GZ for texts with size around 5M in terms of compression speed. 
+In terms of compression speed, significantly faster than GZ for tiny (<1000 characters) sized texts, and approximately as fast as GZ for texts with size around 5M . 
 
 #### Usage scenarios
 
