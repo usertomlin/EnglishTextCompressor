@@ -59,39 +59,39 @@ double rate_gz = originalLength / bytes2.length;
 The average compression rates (compressed size / original size) tested on many Wikipedia texts are approximately:
 	  
 	 * 50 characters (50-character windows): 
-	 * rate_this = 0.395
+	 * rate_this = 0.376
 	 * rate_gz = 1.503
 	 * 
 	 * 100 characters:
-	 * rate_this = 0.3536
+	 * rate_this = 0.336
 	 * rate_gz = 1.12
 	 * 
 	 * 200 characters:
-	 * rate_this = 0.333
-	 * rate_gz = 0.865
+	 * rate_this = 0.316
+	 * rate_gz = 0.868
 	 * 
 	 * 500 characters:
-	 * rate_this = 0.321
+	 * rate_this = 0.304
 	 * rate_gz = 0.663
 	 * 
 	 * 1000 characters:
-	 * rate_this = 0.316
+	 * rate_this = 0.299
 	 * rate_gz = 0.574
 	 * 
 	 * 2000 characters:
-	 * rate_this = 0.314
+	 * rate_this = 0.295
 	 * rate_gz = 0.517
 	 * 
 	 * 5000 characters:
-	 * rate_this = 0.313
-	 * rate_gz = 0.465
+	 * rate_this = 0.294
+	 * rate_gz = 0.468
 	 * 
 	 * 10000 characters:
-	 * rate_this = 0.313 
-	 * rate_gz = 0.434
-	 
+	 * rate_this = 0.294
+	 * rate_gz = 0.438
+	
 	 * english texts with size around 5M
-	 * rate_this = 0.313 
+	 * rate_this = 0.293
 	 * rate_gz = 0.367
 	 *
 
